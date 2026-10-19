@@ -289,3 +289,53 @@ figcaption { font-size: 0.875rem; color: var(--dim); margin-top: 6px; }
   html { scroll-behavior: auto; }
   .needle { transition: none; }
 }
+
+/* Titles of records */
+cite { font-style: italic; }
+.tagline cite { font-style: normal; }
+
+/* ---------- Main band photo (hero) ---------- */
+.hero-photo { margin: clamp(32px, 5vw, 56px) 0 0; }
+.hero-photo img {
+  display: block;
+  width: 100%;
+  max-height: 85vh;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.hero-photo figcaption, .cover figcaption {
+  font-size: 0.95rem; color: var(--dim); margin-top: 8px;
+}
+
+/* ---------- Album cover beside the track list ---------- */
+.listen-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+.cover { margin: 0; }
+.cover img { display: block; width: 100%; height: auto; }
+.player { min-width: 0; }
+
+/* ---------- Live photos: masonry columns, no cropping ---------- */
+.live-meta { margin: -12px 0 20px; color: var(--dim); font-style: italic; }
+.live-photos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  gap: 12px;
+}
+.live-photos a { display: block; aspect-ratio: 3 / 2; }
+.live-photos a.tall { grid-row: span 2; aspect-ratio: auto; }
+.live-photos img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 760px) {
+  .listen-grid { grid-template-columns: 1fr; }
+  .cover { max-width: 420px; }
+  .live-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .live-photos { grid-template-columns: 1fr; }
+  .live-photos a.tall { grid-row: auto; aspect-ratio: 4 / 5; }
+}

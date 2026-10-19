@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Radio School</title>
-  <meta name="description" content="Radio School — music, photos, bio and booking.">
+  <meta name="description" content="Radio School is a Seattle trio: Kim Miller, Alan Foote and Erin Tate. Music, photos, bio and booking.">
 
   <!-- Link previews (when someone shares the URL in a text or on social) -->
   <meta property="og:title" content="Radio School">
   <meta property="og:description" content="Music, photos, bio and booking.">
-  <meta property="og:image" content="https://thisisradioschool.com/assets/photos/photo-1.jpg">
+  <meta property="og:image" content="https://thisisradioschool.com/assets/photos/FullSizeRender.jpeg">
   <meta property="og:url" content="https://thisisradioschool.com">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,8 +26,8 @@
     <nav aria-label="Sections">
       <a href="#listen">Listen</a>
       <a href="#about">About</a>
-      <a href="#photos">Photos</a>
       <a href="#links">Links</a>
+      <a href="#live">Live</a>
       <a href="#booking">Booking</a>
     </nav>
   </header>
@@ -37,12 +37,18 @@
        The red needle moves to whichever track is playing. -->
   <section class="hero">
     <h1>Radio School</h1>
-    <p class="tagline">One line about the band goes here.</p>
+    <p class="tagline">Seattle trio. Debut EP <cite>This is Radio School</cite> out now.</p>
 
     <div class="dial" aria-hidden="true">
       <div class="dial-scale" id="dialScale"></div>
       <div class="needle" id="needle"></div>
     </div>
+
+    <!-- Main band photo. Swap the file in assets/photos/ and update both paths. -->
+    <figure class="hero-photo">
+      <img src="assets/photos/FullSizeRender.jpeg" alt="Radio School: Kim Miller, Alan Foote and Erin Tate">
+      <figcaption><a href="assets/photos/FullSizeRender.jpeg" download="Radio School - press photo.jpeg">Download press photo</a></figcaption>
+    </figure>
   </section>
 
   <main>
@@ -54,33 +60,49 @@
     <section id="listen" class="block">
       <h2>Listen</h2>
 
+      <div class="listen-grid">
+      <figure class="cover">
+        <img src="assets/photos/ThisIsRadioSchool_Cover.jpg" alt="Cover art for This is Radio School">
+        <figcaption><cite>This is Radio School</cite> (EP) &nbsp;<a href="assets/photos/ThisIsRadioSchool_Cover.jpg" download="Radio School - This is Radio School cover.jpg">Download cover</a></figcaption>
+      </figure>
+
+      <div class="player">
       <ol class="tracks" id="tracks">
-        <li class="track" data-src="assets/audio/track-1.mp3" data-freq="91.3">
-          <button class="play" type="button" aria-label="Play Track One"></button>
-          <span class="freq">91.3</span>
-          <span class="title">Track One</span>
+        <li class="track" data-src="assets/audio/DARK%20PLACES%20MIX3%20MASTERED_04.mp3" data-freq="90.5">
+          <button class="play" type="button" aria-label="Play Dark Places"></button>
+          <span class="freq">90.5</span>
+          <span class="title">Dark Places</span>
           <span class="time">0:00</span>
-          <a class="dl" href="assets/audio/track-1.mp3" download>Download</a>
+          <a class="dl" href="assets/audio/DARK%20PLACES%20MIX3%20MASTERED_04.mp3" download="Radio School - Dark Places.mp3">Download</a>
         </li>
-        <li class="track" data-src="assets/audio/track-2.mp3" data-freq="97.7">
-          <button class="play" type="button" aria-label="Play Track Two"></button>
-          <span class="freq">97.7</span>
-          <span class="title">Track Two</span>
+        <li class="track" data-src="assets/audio/FUTURE%20OF%20WOLVES%20MIX3%20MASTERED_04-01.mp3" data-freq="95.3">
+          <button class="play" type="button" aria-label="Play Future of Wolves"></button>
+          <span class="freq">95.3</span>
+          <span class="title">Future of Wolves</span>
           <span class="time">0:00</span>
-          <a class="dl" href="assets/audio/track-2.mp3" download>Download</a>
+          <a class="dl" href="assets/audio/FUTURE%20OF%20WOLVES%20MIX3%20MASTERED_04-01.mp3" download="Radio School - Future of Wolves.mp3">Download</a>
         </li>
-        <li class="track" data-src="assets/audio/track-3.mp3" data-freq="104.1">
-          <button class="play" type="button" aria-label="Play Track Three"></button>
-          <span class="freq">104.1</span>
-          <span class="title">Track Three</span>
+        <li class="track" data-src="assets/audio/SECOND%20CHANCES%20MIX2%20MASTERED_03.mp3" data-freq="100.1">
+          <button class="play" type="button" aria-label="Play Second Chances"></button>
+          <span class="freq">100.1</span>
+          <span class="title">Second Chances</span>
           <span class="time">0:00</span>
-          <a class="dl" href="assets/audio/track-3.mp3" download>Download</a>
+          <a class="dl" href="assets/audio/SECOND%20CHANCES%20MIX2%20MASTERED_03.mp3" download="Radio School - Second Chances.mp3">Download</a>
+        </li>
+        <li class="track" data-src="assets/audio/WEIRD%20ME%20IN%20MIX2%20MASTERED_05-01.mp3" data-freq="104.9">
+          <button class="play" type="button" aria-label="Play Weird Me In"></button>
+          <span class="freq">104.9</span>
+          <span class="title">Weird Me In</span>
+          <span class="time">0:00</span>
+          <a class="dl" href="assets/audio/WEIRD%20ME%20IN%20MIX2%20MASTERED_05-01.mp3" download="Radio School - Weird Me In.mp3">Download</a>
         </li>
       </ol>
 
       <div class="progress" id="progress" role="slider" tabindex="0"
            aria-label="Playback position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
         <div class="progress-fill" id="progressFill"></div>
+      </div>
+      </div>
       </div>
     </section>
 
@@ -90,61 +112,59 @@
       <div class="bio">
         <!-- Short bio: the 2–3 sentences a booker or writer will copy. -->
         <p class="bio-short">
-          Radio School is a placeholder sentence about who's in the band and what it sounds like.
-          A second sentence about where you play and what you've released.
+          Radio School is a Seattle trio: Kim Miller (vocals, bass; Stiletto), Alan Foote (guitar, vocals; Black Whales)
+          and Erin Tate (drums; Minus the Bear, Kill Sadie). Their debut EP, <cite>This is Radio School</cite>, recorded
+          by Barrett Jones (Nirvana, Foo Fighters), is out now everywhere you stream music.
         </p>
 
         <!-- Long bio: collapsed by default. -->
         <details>
           <summary>Read the full bio</summary>
-          <p>Longer history goes here: how the band started, members and instruments, records, notable shows, and what's next.</p>
-          <p>Members: Name (guitar), Name (bass), Name (drums).</p>
+          <p>Radio School is a Seattle outfit featuring Kim Miller (vocals and bass; formerly of Stiletto), Alan Foote
+          (guitar and vocals; formerly of Black Whales) and Erin Tate (drums; formerly of Minus the Bear and Kill Sadie).</p>
+          <p>The band's Seattle roots are omnipresent but not overstated. Though you can hear a ton of '90s underground
+          influence, they've forsaken nostalgia for something new entirely.</p>
+          <p>Miller's lyrics are delivered via trancelike vocals that oscillate wildly between sweet and lethal, powering
+          through a landscape of slick bass lines, dreamy guitars and heavy-hitting drums.</p>
+          <p>One thing is for certain: Radio School does not do things with a light touch.</p>
+          <p>Their debut EP, <cite>This is Radio School</cite>, recorded at Laundry Room Studio by legendary Seattle-area
+          producer Barrett Jones (Nirvana, Foo Fighters), was released earlier this year and can be found wherever you
+          stream your music.</p>
         </details>
       </div>
-    </section>
-
-    <!-- ============ PHOTOS ============
-         Each photo links to the full file so press can download it.
-         Replace the files in assets/photos/ and update the alt text. -->
-    <section id="photos" class="block">
-      <h2>Photos</h2>
-      <div class="photos">
-        <figure class="wide">
-          <a href="assets/photos/photo-1.jpg" download><img src="assets/photos/photo-1.jpg" alt="Radio School, band photo 1" loading="lazy"></a>
-          <figcaption>Photo: Credit Name</figcaption>
-        </figure>
-        <figure class="tall">
-          <a href="assets/photos/photo-2.jpg" download><img src="assets/photos/photo-2.jpg" alt="Radio School, band photo 2" loading="lazy"></a>
-          <figcaption>Photo: Credit Name</figcaption>
-        </figure>
-        <figure class="tall">
-          <a href="assets/photos/photo-4.jpg" download><img src="assets/photos/photo-4.jpg" alt="Radio School, band photo 3" loading="lazy"></a>
-          <figcaption>Photo: Credit Name</figcaption>
-        </figure>
-        <figure class="wide">
-          <a href="assets/photos/photo-3.jpg" download><img src="assets/photos/photo-3.jpg" alt="Radio School, live photo" loading="lazy"></a>
-          <figcaption>Photo: Credit Name</figcaption>
-        </figure>
-      </div>
-      <p class="note">Click any photo to download the full-size file.</p>
     </section>
 
     <!-- ============ LINKS ============ -->
     <section id="links" class="block">
       <h2>Links</h2>
       <ul class="links">
-        <li><a href="https://bandcamp.com/">Bandcamp</a></li>
-        <li><a href="https://instagram.com/">Instagram</a></li>
-        <li><a href="https://open.spotify.com/">Spotify</a></li>
-        <li><a href="https://youtube.com/">YouTube</a></li>
+        <li><a href="https://radioschool.bandcamp.com/">Bandcamp</a></li>
+        <li><a href="https://www.instagram.com/thisisradioschool/">Instagram</a></li>
+        <!-- To add more: copy a line above and change the URL and name. -->
       </ul>
+    </section>
+
+    <!-- ============ LIVE ============
+         Live photos. Each links to the full file for download.
+         To add one: copy a line, change both paths. Any shape works. -->
+    <section id="live" class="block">
+      <h2>Live</h2>
+      <p class="live-meta">Black Lodge, Seattle, October 17, 2026</p>
+      <div class="live-photos">
+        <a href="assets/photos/20261017-1-50_.jpg" download><img src="assets/photos/20261017-1-50_.jpg" alt="Radio School live at the Black Lodge" loading="lazy"></a>
+        <a class="tall" href="assets/photos/20261017-3-50_%20%281%29.jpg" download><img src="assets/photos/20261017-3-50_%20%281%29.jpg" alt="Radio School live at the Black Lodge" loading="lazy"></a>
+        <a href="assets/photos/20261017-9-50_.jpg" download><img src="assets/photos/20261017-9-50_.jpg" alt="Radio School live at the Black Lodge" loading="lazy"></a>
+        <a href="assets/photos/20261017-3-50_.jpg" download><img src="assets/photos/20261017-3-50_.jpg" alt="Radio School live at the Black Lodge" loading="lazy"></a>
+        <a href="assets/photos/20261017-15-50_.jpg" download><img src="assets/photos/20261017-15-50_.jpg" alt="Radio School live at the Black Lodge" loading="lazy"></a>
+      </div>
+      <p class="note">Click any photo to download the full-size file.</p>
     </section>
 
     <!-- ============ BOOKING ============ -->
     <section id="booking" class="block booking">
       <h2>Booking</h2>
       <p>For shows, press and everything else:</p>
-      <a class="email" href="mailto:booking@thisisradioschool.com">booking@thisisradioschool.com</a>
+      <a class="email" href="mailto:thisisradioschool@gmail.com">thisisradioschool@gmail.com</a>
     </section>
 
   </main>
