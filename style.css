@@ -140,7 +140,7 @@ main {
 .tracks { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
 .track {
   display: grid;
-  grid-template-columns: 44px 64px 1fr auto auto;
+  grid-template-columns: 44px 56px minmax(0, 11rem) auto 1fr;
   align-items: center;
   gap: 0 16px;
   padding: 12px 0;
@@ -183,7 +183,7 @@ main {
   font-size: 1.25rem;
 }
 .time { color: var(--dim); font-variant-numeric: tabular-nums; font-size: 1rem; }
-.dl { font-size: 1rem; }
+.dl { font-size: 1rem; justify-self: end; }
 
 .progress {
   margin-top: 20px;
@@ -307,7 +307,7 @@ cite { font-style: normal; }
 /* ---------- Album cover beside the track list ---------- */
 .listen-grid {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(24px, 4vw, 48px);
   align-items: start;
 }
