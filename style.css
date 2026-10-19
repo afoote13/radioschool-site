@@ -10,10 +10,11 @@
   --ink:       #000000;
   --dim:       #5b5f57;   /* secondary text */
   --rule:      #9a9d93;   /* lines and dial ticks */
-  --needle:    #c41e1e;   /* tuning needle + playing track; used sparingly */
+  --needle:    #c41e1e;
+  --buffer:    #4b8473;   /* green side buffers outside the page */
 
-  --display: "Archivo", "Arial Narrow", sans-serif;
-  --body:    "Newsreader", Georgia, serif;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body:    "Source Serif 4", Georgia, serif;
 
   --gutter: clamp(16px, 4vw, 56px);
   --max: 1120px;
@@ -23,8 +24,12 @@
 
 html { scroll-behavior: smooth; }
 
+html { background: var(--buffer); }
+
 body {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1240px;
+  min-height: 100vh;
   background: var(--faceplate);
   color: var(--ink);
   font-family: var(--body);
@@ -53,7 +58,6 @@ a:hover { text-decoration-thickness: 2px; }
 .top nav {
   display: flex; flex-wrap: wrap; gap: 6px 22px;
   font-family: var(--display);
-  font-stretch: 85%;
   font-weight: 500;
   font-size: 1rem;
 }
@@ -69,15 +73,14 @@ a:hover { text-decoration-thickness: 2px; }
 .hero h1 {
   margin: 0;
   font-family: var(--display);
-  font-weight: 850;
-  font-stretch: 62%;
+  font-weight: 700;
   font-size: clamp(4.5rem, 19vw, 15rem);
   line-height: 0.82;
   letter-spacing: -0.01em;
 }
 .tagline {
   margin: 18px 0 0;
-  font-style: italic;
+  font-style: normal;
   color: var(--dim);
   font-size: 1.25rem;
 }
@@ -101,7 +104,6 @@ a:hover { text-decoration-thickness: 2px; }
   position: absolute; top: 32px;
   transform: translateX(-50%);
   font-family: var(--display);
-  font-stretch: 75%;
   font-size: 0.875rem;
   color: var(--dim);
   font-variant-numeric: tabular-nums;
@@ -130,7 +132,6 @@ main {
   margin: 0 0 24px;
   font-family: var(--display);
   font-weight: 800;
-  font-stretch: 70%;
   font-size: clamp(2.25rem, 5vw, 3.25rem);
   line-height: 1;
 }
@@ -172,7 +173,6 @@ main {
 .track.is-playing .play { border-color: var(--needle); }
 .freq {
   font-family: var(--display);
-  font-stretch: 75%;
   color: var(--dim);
   font-variant-numeric: tabular-nums;
 }
@@ -180,7 +180,6 @@ main {
 .title {
   font-family: var(--display);
   font-weight: 600;
-  font-stretch: 90%;
   font-size: 1.25rem;
 }
 .time { color: var(--dim); font-variant-numeric: tabular-nums; font-size: 1rem; }
@@ -196,11 +195,12 @@ main {
 
 /* ---------- About ---------- */
 .bio { max-width: 38em; }
-.bio-short {
-  margin: 0 0 20px;
+.bio p {
+  margin: 0 0 1em;
   font-size: clamp(1.3rem, 2.4vw, 1.6rem);
   line-height: 1.45;
 }
+
 details {
   border-top: 1px solid var(--rule);
   padding-top: 12px;
@@ -209,7 +209,6 @@ summary {
   cursor: pointer;
   font-family: var(--display);
   font-weight: 600;
-  font-stretch: 90%;
 }
 details p { margin: 14px 0 0; }
 
@@ -242,7 +241,6 @@ figcaption { font-size: 0.875rem; color: var(--dim); margin-top: 6px; }
   display: flex; flex-wrap: wrap; gap: 8px 32px;
   font-family: var(--display);
   font-weight: 600;
-  font-stretch: 85%;
   font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
@@ -251,7 +249,6 @@ figcaption { font-size: 0.875rem; color: var(--dim); margin-top: 6px; }
 .email {
   font-family: var(--display);
   font-weight: 700;
-  font-stretch: 75%;
   font-size: clamp(1.15rem, 5.2vw, 3rem);
   overflow-wrap: anywhere;
 }
@@ -291,7 +288,7 @@ figcaption { font-size: 0.875rem; color: var(--dim); margin-top: 6px; }
 }
 
 /* Titles of records */
-cite { font-style: italic; }
+cite { font-style: normal; }
 .tagline cite { font-style: normal; }
 
 /* ---------- Main band photo (hero) ---------- */
@@ -319,7 +316,7 @@ cite { font-style: italic; }
 .player { min-width: 0; }
 
 /* ---------- Live photos: masonry columns, no cropping ---------- */
-.live-meta { margin: -12px 0 20px; color: var(--dim); font-style: italic; }
+.live-meta { margin: -12px 0 20px; color: var(--dim); font-style: normal; }
 .live-photos {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
