@@ -1,0 +1,291 @@
+/* ==========================================================
+   Radio School — style.css
+   Colors and fonts live in :root. Change them there and the
+   whole site follows.
+   ========================================================== */
+
+:root {
+  --faceplate: #d9dad2;   /* page background: old radio faceplate grey */
+  --panel:     #eeefe9;   /* lighter strips (track rows, details) */
+  --ink:       #000000;
+  --dim:       #5b5f57;   /* secondary text */
+  --rule:      #9a9d93;   /* lines and dial ticks */
+  --needle:    #c41e1e;   /* tuning needle + playing track; used sparingly */
+
+  --display: "Archivo", "Arial Narrow", sans-serif;
+  --body:    "Newsreader", Georgia, serif;
+
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--faceplate);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible { outline: 2px solid var(--needle); outline-offset: 3px; }
+
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--ink); color: var(--faceplate); padding: 8px 12px;
+}
+.skip:focus { left: 8px; top: 8px; }
+
+/* ---------- Header / nav ---------- */
+.top {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 20px var(--gutter) 0;
+}
+.top nav {
+  display: flex; flex-wrap: wrap; gap: 6px 22px;
+  font-family: var(--display);
+  font-stretch: 85%;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.top nav a { text-decoration: none; }
+.top nav a:hover { text-decoration: underline; }
+
+/* ---------- Hero ---------- */
+.hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(48px, 10vw, 120px) var(--gutter) 0;
+}
+.hero h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 850;
+  font-stretch: 62%;
+  font-size: clamp(4.5rem, 19vw, 15rem);
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+}
+.tagline {
+  margin: 18px 0 0;
+  font-style: italic;
+  color: var(--dim);
+  font-size: 1.25rem;
+}
+
+/* The tuning dial */
+.dial {
+  position: relative;
+  margin-top: clamp(36px, 6vw, 64px);
+  height: 70px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+.dial-scale { position: relative; height: 100%; }
+.tick {
+  position: absolute; top: 0;
+  width: 1px; height: 12px;
+  background: var(--ink);
+}
+.tick.major { height: 24px; width: 2px; margin-left: -0.5px; }
+.tick-label {
+  position: absolute; top: 32px;
+  transform: translateX(-50%);
+  font-family: var(--display);
+  font-stretch: 75%;
+  font-size: 0.875rem;
+  color: var(--dim);
+  font-variant-numeric: tabular-nums;
+}
+.needle {
+  position: absolute;
+  top: -14px; bottom: -14px;
+  width: 3px;
+  margin-left: -1.5px;
+  background: var(--needle);
+  left: 30%;
+  transition: left 900ms cubic-bezier(.3,.7,.2,1);
+}
+
+/* ---------- Sections ---------- */
+main {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.block {
+  padding-top: clamp(64px, 9vw, 112px);
+  scroll-margin-top: 12px;
+}
+.block h2 {
+  margin: 0 0 24px;
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 70%;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  line-height: 1;
+}
+
+/* ---------- Tracks ---------- */
+.tracks { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.track {
+  display: grid;
+  grid-template-columns: 44px 64px 1fr auto auto;
+  align-items: center;
+  gap: 0 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.play {
+  width: 40px; height: 40px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+/* play triangle */
+.play::before {
+  content: "";
+  position: absolute; left: 14px; top: 10px;
+  border-style: solid;
+  border-width: 8px 0 8px 12px;
+  border-color: transparent transparent transparent var(--ink);
+}
+/* pause bars when playing */
+.track.is-playing .play::before {
+  left: 11px; top: 11px;
+  width: 4px; height: 14px;
+  border: 0;
+  background: var(--ink);
+  box-shadow: 9px 0 0 var(--ink);
+}
+.track.is-playing .play { border-color: var(--needle); }
+.freq {
+  font-family: var(--display);
+  font-stretch: 75%;
+  color: var(--dim);
+  font-variant-numeric: tabular-nums;
+}
+.track.is-playing .freq { color: var(--needle); }
+.title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-stretch: 90%;
+  font-size: 1.25rem;
+}
+.time { color: var(--dim); font-variant-numeric: tabular-nums; font-size: 1rem; }
+.dl { font-size: 1rem; }
+
+.progress {
+  margin-top: 20px;
+  height: 6px;
+  background: var(--panel);
+  cursor: pointer;
+}
+.progress-fill { height: 100%; width: 0; background: var(--ink); }
+
+/* ---------- About ---------- */
+.bio { max-width: 38em; }
+.bio-short {
+  margin: 0 0 20px;
+  font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+  line-height: 1.45;
+}
+details {
+  border-top: 1px solid var(--rule);
+  padding-top: 12px;
+}
+summary {
+  cursor: pointer;
+  font-family: var(--display);
+  font-weight: 600;
+  font-stretch: 90%;
+}
+details p { margin: 14px 0 0; }
+
+/* ---------- Photos ---------- */
+.photos {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+.photos { align-items: start; }
+.photos figure { margin: 0; }
+.photos .wide { grid-column: span 4; }
+.photos .tall { grid-column: span 2; }
+.photos img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: grayscale(0.15);
+}
+.photos .wide img { aspect-ratio: 3 / 2; }
+.photos .tall img { aspect-ratio: 4 / 5; }
+.photos a:hover img { filter: none; }
+figcaption { font-size: 0.875rem; color: var(--dim); margin-top: 6px; }
+.note { font-size: 1rem; color: var(--dim); margin: 16px 0 0; }
+
+/* ---------- Links ---------- */
+.links {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 8px 32px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-stretch: 85%;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* ---------- Booking ---------- */
+.booking p { margin: 0 0 8px; color: var(--dim); }
+.email {
+  font-family: var(--display);
+  font-weight: 700;
+  font-stretch: 75%;
+  font-size: clamp(1.15rem, 5.2vw, 3rem);
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Footer ---------- */
+.foot {
+  max-width: var(--max);
+  margin: clamp(80px, 10vw, 140px) auto 0;
+  padding: 20px var(--gutter) 40px;
+  border-top: 2px solid var(--ink);
+  font-size: 0.9rem;
+  color: var(--dim);
+}
+.foot p { margin: 0; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 640px) {
+  .track {
+    grid-template-columns: 44px 1fr auto;
+    grid-template-areas: "play title time" "play freq dl";
+    gap: 2px 12px;
+  }
+  .play  { grid-area: play; }
+  .title { grid-area: title; }
+  .time  { grid-area: time; }
+  .freq  { grid-area: freq; font-size: 0.95rem; }
+  .dl    { grid-area: dl; }
+  .photos { grid-template-columns: 1fr; }
+  .photos .wide, .photos .tall { grid-column: auto; }
+  .tick:not(.major) { display: none; }
+  .tick-label.minor-label { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .needle { transition: none; }
+}
