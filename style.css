@@ -5,13 +5,13 @@
    ========================================================== */
 
 :root {
-  --faceplate: #d9dad2;   /* page background: old radio faceplate grey */
-  --panel:     #eeefe9;   /* lighter strips (track rows, details) */
-  --ink:       #000000;
-  --dim:       #5b5f57;   /* secondary text */
-  --rule:      #9a9d93;   /* lines and dial ticks */
-  --needle:    #c41e1e;
-  --buffer:    #4b8473;   /* green side buffers outside the page */
+  --faceplate: #4b8473;   /* page background: green */
+  --panel:     rgba(255,255,255,.25);   /* progress bar track */
+  --ink:       #ffffff;   /* main text */
+  --dim:       #e2ece8;   /* secondary text */
+  --rule:      rgba(255,255,255,.45);   /* lines and dial ticks */
+  --needle:    #e8892b;   /* tuning needle + playing track: orange from the EP cover */
+  --buffer:    #d9dad2;   /* grey side buffers outside the page */
 
   --display: "Barlow Condensed", "Arial Narrow", sans-serif;
   --body:    "Source Serif 4", Georgia, serif;
