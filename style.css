@@ -336,3 +336,6 @@ cite { font-style: normal; }
   .live-photos { grid-template-columns: 1fr; }
   .live-photos a.tall { grid-row: auto; aspect-ratio: 4 / 5; }
 }
+
+/* Footer easter-egg link to the 1994 site */
+.egg { color: var(--dim); text-decoration-style: dotted; }
